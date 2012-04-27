@@ -2,34 +2,33 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define beta beta1
+%define beta beta2
 %endif
 
 Name:            amsynth
 Version:         1.3
 
 %if %branch
-Release:        %mkrel -c %beta 1
+Release:        0.%{beta}.1
 %else
-Release:        %mkrel 1
+Release:        1
 %endif
 
 Summary:        Virtual-analog polyphonic synthesizer for ALSA, OSS and JACK
 
 %if %branch
-Source:         http://%{name}.googlecode.com/files/amSynth-%{version}-beta1.tar.gz
+Source:         http://%{name}.googlecode.com/files/amSynth-%{version}-%{beta}.tar.gz
 %else
 Source:         http://%{name}.googlecode.com/files/amSynth-%{version}.tar.gz
 %endif
 URL:            http://code.google.com/p/%{name}
 License:        GPLv2
 Group:          Sound
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  gtkmm2.4-devel
-BuildRequires:  alsa-lib-devel
-BuildRequires:  jackit-devel
+BuildRequires:  pkgconfig(gtkmm-2.4)
+BuildRequires:  pkgconfig(alsa)
+BuildRequires:  pkgconfig(jack)
+BuildRequires:  pkgconfig(sndfile)
 BuildRequires:  alsa-oss-devel
-BuildRequires:  sndfile-devel
 
 %description
 AmSynth is a standalone polyphonic subtractive synthesizer. It supports
@@ -48,27 +47,15 @@ o Reverb
 %else
 %setup -q -n amSynth-%{version}
 %endif
+perl -pi -le 'print "#include <unistd.h>" if $. == 10' src/Config.cc
 
 %build
-%configure2_5x --without-lash
+LIBS='-lX11' %configure2_5x --without-lash
 %make
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-mkdir -p %{buildroot}%{_datadir}/applications
-cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
-[Desktop Entry]
-Name=AmSynth
-Comment=Dual-Oscil sub synthesizer
-Exec=%{_bindir}/amSynth
-Icon=sound_section
-Terminal=false
-Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;AudioVideo;
-Encoding=UTF-8
-EOF
 
 
 %clean
@@ -79,5 +66,6 @@ rm -rf %{buildroot}
 %doc README AUTHORS
 %{_bindir}/amSynth
 %{_datadir}/amSynth
-%{_datadir}/applications/mandriva-%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/%{name}.png
 
