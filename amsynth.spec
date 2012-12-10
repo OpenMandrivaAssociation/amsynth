@@ -61,3 +61,20 @@ rm -rf %{buildroot}
 %files dssi
 %{_libdir}/dssi/amsynth_dssi.so
 %{_libdir}/dssi/amsynth_dssi/amsynth_dssi_gtk
+
+
+%changelog
+* Tue Jun 26 2012 Frank Kober <emuse@mandriva.org> 1.3.1-1
++ Revision: 806940
+- missing liblo-devel BR added
+- missing dssi-devel BR added
+- new version 1.3.1 including dssi plugin
+
+* Fri Apr 27 2012 Frank Kober <emuse@mandriva.org> 1.3-0.beta2.1
++ Revision: 793733
+- new beta version 1.3.beta2
+
+* Tue Apr 19 2011 Frank Kober <emuse@mandriva.org> 1.3-0.beta1.1
++ Revision: 656009
+-Import AmSynth Version 1.3beta1
+
