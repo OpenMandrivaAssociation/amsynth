@@ -1,6 +1,6 @@
 Name:            amsynth
 Version:         1.3.1
-Release:         1
+Release:         2
 
 Summary:        Virtual-analog polyphonic synthesizer for ALSA, OSS and JACK
 Source:         http://%{name}.googlecode.com/files/amSynth-%{version}.tar.gz
