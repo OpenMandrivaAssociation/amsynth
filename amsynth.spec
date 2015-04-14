@@ -14,6 +14,7 @@ BuildRequires:  pkgconfig(sndfile)
 BuildRequires:  alsa-oss-devel
 BuildRequires:  dssi-devel
 BuildRequires:  liblo-devel
+BuildRequires:  ladspa-devel
 
 %description
 AmSynth is a standalone polyphonic subtractive synthesizer. It supports
