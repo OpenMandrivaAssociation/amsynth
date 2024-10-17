@@ -4,7 +4,7 @@ Release:         3
 
 Summary:        Virtual-analog polyphonic synthesizer for ALSA, OSS and JACK
 Source:         http://%{name}.googlecode.com/files/amSynth-%{version}.tar.gz
-URL:            http://code.google.com/p/%{name}
+URL:            https://code.google.com/p/%{name}
 License:        GPLv2
 Group:          Sound
 BuildRequires:  pkgconfig(gtkmm-2.4)
