@@ -1,0 +1,11 @@
+diff -rupN amsynth-1.13.4.old/data/amsynth.desktop.in amsynth-1.13.4/data/amsynth.desktop.in
+--- amsynth-1.13.4.old/data/amsynth.desktop.in	2023-09-09 11:26:03.000000000 +0200
++++ amsynth-1.13.4/data/amsynth.desktop.in	2025-08-13 17:04:49.756829671 +0200
+@@ -9,6 +9,6 @@ Comment[fr]=Synthétiseur logiciel soust
+ Type=Application
+ Categories=AudioVideo;Audio;X-Synthesis;
+ Keywords=music;synthesiser;softsynth;midi;jack;realtime;standalone;
+-Exec=@prefix@/bin/amsynth
++Exec=amsynth
+ Icon=amsynth
+ Terminal=false

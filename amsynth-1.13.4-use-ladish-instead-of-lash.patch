@@ -1,0 +1,24 @@
+diff -rupN amsynth-1.13.4.old/configure.ac amsynth-1.13.4/configure.ac
+--- amsynth-1.13.4.old/configure.ac	2024-05-02 18:25:49.000000000 +0200
++++ amsynth-1.13.4/configure.ac	2025-08-13 17:00:56.221962112 +0200
+@@ -108,7 +108,7 @@ AS_IF([test "x$with_jack" != "xno"],
+ 
+ AC_ARG_WITH([lash], [AS_HELP_STRING([--with-lash], [build support for LASH])])
+ AS_IF([test "x$with_lash" != "xno"], [
+-    PKG_CHECK_MODULES([LASH], [lash-1.0], [
++    PKG_CHECK_MODULES([LASH], [liblash], [
+         AC_DEFINE([WITH_LASH],, [Use this optional package])
+         with_lash="yes"], [with_lash="no"])])
+ 
+diff -rupN amsynth-1.13.4.old/src/lash.c amsynth-1.13.4/src/lash.c
+--- amsynth-1.13.4.old/src/lash.c	2024-04-15 09:05:54.000000000 +0200
++++ amsynth-1.13.4/src/lash.c	2025-08-13 17:02:14.799066065 +0200
+@@ -33,7 +33,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+-#include <lash/lash.h>
++#include <lash-1.0/lash/lash.h>
+ 
+ static lash_client_t *lash_client = NULL;
+ static lash_args_t   *lash_args   = NULL;
