@@ -8,6 +8,10 @@ Url:		https://amsynth.github.io/
 Source0:	https://github.com/amsynth/amsynth/releases/download/release-%{version}/%{name}-%{version}.tar.gz
 Patch0:	amsynth-1.13.4-use-ladish-instead-of-lash.patch
 Patch1:	amsynth-1.13.4-fix-desktop-file.patch
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	autoconf-archive
 BuildRequires:	gettext
 BuildRequires:	intltool
