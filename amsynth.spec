@@ -1,13 +1,13 @@
 Summary:	Virtual-analog polyphonic synthesizer for ALSA, OSS and JACK
 Name:	amsynth
-Version:	1.13.4
+Version:	2.0.0
 Release:	1
 License:	GPLv2+
 Group:	Sound
 Url:		https://amsynth.github.io/
 Source0:	https://github.com/amsynth/amsynth/releases/download/release-%{version}/%{name}-%{version}.tar.gz
-Patch0:	amsynth-1.13.4-use-ladish-instead-of-lash.patch
-Patch1:	amsynth-1.13.4-fix-desktop-file.patch
+# dropped (no longer applies): Patch0:	amsynth-2.0.0-use-ladish-instead-of-lash.patch
+# dropped (no longer applies): Patch1:	amsynth-2.0.0-fix-desktop-file.patch
 BuildRequires:	automake
 BuildRequires:	libtool-base
 BuildRequires:	slibtool
